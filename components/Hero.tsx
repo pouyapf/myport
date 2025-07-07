@@ -31,7 +31,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className=" flex md:flex-row flex-col md:justify-center gap-5 items-center">
+      <div className="s flex md:flex-row flex-col md:justify-center gap-5 items-center">
         <div className="flex justify-center  relative my-20 z-10">
           <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] gap-7 flex flex-col items-center justify-center">
             <Button
