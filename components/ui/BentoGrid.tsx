@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
+import dynamic from "next/dynamic";
 
-// Also install this npm i --save-dev @types/react-lottie
-import Lottie from "react-lottie";
+// Dynamically import Lottie with no SSR
+const Lottie = dynamic(() => import("lottie-react"), {
+  ssr: false,
+});
 
 import { cn } from "@/lib/utils";
 
@@ -52,10 +55,9 @@ export const BentoGridItem = ({
   spareImg?: string;
 }) => {
   const leftLists = ["ReactJS", "Next js", "Tailwind"];
-  const rightLists = ["Html", "Wordpress", "Css"];
+  const rightLists = ["Css", "Html", "Wordpress"];
 
   const [copied, setCopied] = useState(false);
-
   const defaultOptions = {
     loop: copied,
     autoplay: copied,
@@ -111,6 +113,7 @@ export const BentoGridItem = ({
             />
           )}
         </div>
+
         {id === 6 && (
           // add background animation , remove the p tag
           <BackgroundGradientAnimation>
@@ -153,10 +156,8 @@ export const BentoGridItem = ({
                     {item}
                   </span>
                 ))}
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
               </div>
               <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
@@ -181,7 +182,11 @@ export const BentoGridItem = ({
                 }`}
               >
                 {/* <img src="/confetti.gif" alt="confetti" /> */}
-                <Lottie options={defaultOptions} height={200} width={400} />
+
+                <Lottie
+                  {...defaultOptions}
+                  style={{ height: 200, width: 400 }}
+                />
               </div>
 
               <MagicButton
