@@ -67,7 +67,7 @@ const Hero = () => {
               className="text-center  leading-10 text-[35px] md:text-[40px] md:text-5xl lg:text-3xl"
             />
 
-            <a href="/Pouya Fattahi Cv.pdf">
+            <a href="/Pouya Fattahi Cv1.pdf">
               <MagicButton
                 title="Download My CV"
                 icon={<FaLocationArrow />}
